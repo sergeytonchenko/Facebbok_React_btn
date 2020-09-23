@@ -13,12 +13,12 @@ export default class FacebookLogin extends Component {
     }
 
     responseFacebook = (response) => {
-        console.log(response);
-        this.setState({
-            auth: true,
-            name: response.name,
-            picture: response.picture.data.url
-        });
+        if(response.status !== 'unknown')
+            this.setState({
+                auth: true,
+                name: response.name,
+                picture: response.picture.data.url
+            });
       }
 
     render() {
